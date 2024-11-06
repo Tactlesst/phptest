@@ -1,0 +1,84 @@
+* {box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Helvetica, sans-serif;;
+}
+h1, h2 {
+  text-align: center;
+  margin-top: 20px;
+}
+.topmenu {
+  overflow: hidden;
+  background-color: #0a68b0;
+}
+.topmenu a {
+  float: left;
+  display: block;
+  font-size: 17px;
+  color: #fff;
+  padding: 17px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+.topmenu .menubar {
+  padding-left: 20px;
+}
+.topmenu a.active {
+  background-color: #4e69cc;
+  color: #000;
+}
+.topmenu a:hover {
+  background-color: #4e69cc;
+  color: black;
+}
+@media screen and (max-width: 500px) {
+  .topmenu a {
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+    display: block;
+    float: none; 
+  }
+}
+.err-msg{
+  text-align: center;
+  color:red;
+}
+
+.form-1 {
+  margin: 50px auto;
+  padding-bottom: 30px;
+  border: 1px solid #09168d;
+  border-radius: 7px;
+  background: #fff;
+  width: 37%;
+}
+.check {
+  margin: 5px 0px;
+  width: 6%;
+  height: 20px;
+  }
+.user{
+  float: right;
+  padding: 17px 25px;
+  color: #fff;
+}
+.welcome{
+  color: #c6f606;
+}
+.logout{
+   float: right;
+}
+.profile-picture img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.profile-picture img:hover{
+  transform: scale(1.1);
+}
