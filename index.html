@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="my_modal" class="modal"></div>
+    <button onclick="showLoginModal()">Login</button>
+    <button onclick="showRegisterModal()">Register</button>
+ </body>
+ 
+ <script>
+    function showLoginModal() {   
+       $.ajax({
+          url: 'php/login_content.php',
+          type: "GET",
+          cache: false,
+          success: function(html) {
+             $("#my_modal").html(html);
+             $('#my_modal').modal('show');  // Adjust for Bootstrap 4+
+          }
+       });
+       event.preventDefault();
+    }
+ 
+    function showRegisterModal() {   
+       $.ajax({
+          url: 'php/register_content.php',
+          type: "GET",
+          cache: false,
+          success: function(html) {
+             $("#my_modal").html(html);
+             $('#my_modal').modal('show');  // Adjust for Bootstrap 4+
+          }
+       });
+       event.preventDefault();
+    }
+ 
+    // Form Submission via AJAX
+    $("form").submit(function(event) {
+       event.preventDefault();  // Prevent form submission
+       var formData = $(this).serialize();  // Get form data
+ 
+       $.ajax({
+          url: $(this).attr('action'),
+          type: "POST",
+          data: formData,
+          success: function(response) {
+             // Handle the response after form submission
+             console.log(response);  // or display the response in the modal
+          }
+       });
+    });
+ </script>
+ 
+ <!-- login_content.php -->
+ <div class="modal-content">
+    <form action="login_content.php" method="post">
+       User
+       <input name="user_name" id="login_user_name" type="text">
+       Password
+       <input name="user_pass" id="login_user_pass" type="password">
+       <button type="submit" id="login">Login</button>
+    </form>
+ </div>
+ 
+ <!-- register_content.php -->
+ <div class="modal-content">
+    <form action="register_content.php" method="post">
+       Username
+       <input name="user_name" id="register_user_name" type="text"> 
+       Password
+       <input name="user_pass" id="register_user_pass" type="password"> 
+       Confirm Password
+       <input name="confirm_pass" id="register_confirm_pass" type="password">
+       <button type="submit" id="register">Register</button>
+    </form>
+ </div>
+ </html>
